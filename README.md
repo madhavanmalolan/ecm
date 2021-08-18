@@ -1,5 +1,6 @@
 # Ethereum Cloud Messaging Node
 ECM Nodes can earn by being a relayer of notifications
+As seen on the the [ecmnetwork homepage](https://madhavanmalolan.github.io/ecm.js)
 
 ## 1. Git Clone
 
