@@ -268,12 +268,10 @@ async function init() {
 	  console.log("New Notification", JSON.stringify(event));
 	  if(event.returnValues.server === process.env.ETH_ADDRESS){
 		  console.log("MY Notification");
-		  console.log(PRIVATE_KEY);
-		  console.log(event.returnValues.encryptedPushToken);
 		  const pushToken = decrypt.decrypt(event.returnValues.encryptedPushToken);
 		  console.log(pushToken);
 		  webpush.setVapidDetails("mailto:madhavan@creatoros.co", process.env.VAPID_PUBLIC_KEY, process.env.VAPID_PRIVATE_KEY);
-		  webpush.sendNotification(JSON.parse(pushToken), JSON.stringify({title: event.returnValues.title, data: event.returnValues.data, image: event.returnValues.image }));
+		  webpush.sendNotification(JSON.parse(pushToken), JSON.stringify({title: event.returnValues.title, data: event.returnValues.data, image: event.returnValues.image })).then(console.log).catch(console.error);
 	  }
 	
 	});
